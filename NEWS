@@ -1,0 +1,57 @@
+* Definition of gcd, lcm, Gcd, Lcm for Euclidean (semi)rings to remove 
+  duplication for nat/int and simplify and simplify gcd/lcm for other types 
+  such as polynomials
+  * Introduction of classes euclidean_semiring, euclidean_ring, 
+    euclidean_semiring_gcd, and euclidean_ring_gcd that unify properties of 
+    gcd/lcm/Gcd/Lcm in one type class.
+  * Interpretations gcd_nat/lcm_nat/gcd_int/lcm_int of abel_semigroup 
+    replaced with interpretations gcd/lcm
+  * Definition of bezw generalised, auxiliary lemmas bezw_0, bezw_non_0, and bezw_aux change accordingly
+  * gcd_int_def ~> gcd_int_altdef
+  * The following lemmas for nat/int are subsumed by new respective lemmas for euclidean_semiring_gcd/euclidean_ring_gcd.
+    For example, gcd_1_nat and gcd_1_int are now replaced by gcd_1. Note that not all lemmas for gcd/lcm involving 
+    nat/int are affected, only those that are completely identical to the new lemmas for euclidean_(semi)ring!
+    The full list of lemmas affected by this is:
+        bezout_int
+        gcd_neg1_int, gcd_neg2_int, gcd_neg_numeral_1_int, gcd_neg_numeral_2_int
+        lcm_neg1_int, lcm_neg2_int, gcd_red_nat, gcd_red_int, gcd_non_0_nat, 
+            gcd_non_0_int, gcd_1_nat, gcd_1_int
+        gcd_dvd1_nat, gcd_dvd2_nat, dvd_gcd_D1_nat, dvd_gcd_D2_nat, 
+            gcd_greatest_nat, gcd_greatest_iff_nat, gcd_zero_nat
+        gcd_dvd1_int, gcd_dvd2_int, dvd_gcd_D1_int, dvd_gcd_D2_int, 
+            gcd_greatest_int, gcd_greatest_iff_int, gcd_zero_int
+        gcd_assoc_nat, gcd_commute_nat, gcd_left_commute_nat, gcd_ac_nat
+        gcd_assoc_int, gcd_commute_int, gcd_left_commute_int, gcd_ac_int
+        coprime_dvd_mult_nat, coprime_dvd_mult_iff_nat, gcd_mult_cancel_nat
+        coprime_dvd_mult_int, coprime_dvd_mult_iff_int, gcd_mult_cancel_int
+        gcd_add1_nat, gcd_add2_nat, gcd_exp_nat, gcd_add_mult_nat, 
+            gcd_dvd_prod_nat, div_gcd_coprime_nat
+        gcd_add1_int, gcd_add2_int, gcd_diff1_int, gcd_diff2_int, 
+            gcd_exp_int, gcd_add_mult_int, div_gcd_coprime_int
+        gcd_coprime_nat, coprime_mult_nat, coprime_lmult_nat, 
+            coprime_rmult_nat, coprime_mul_eq_nat, gcd_coprime_exists_nat, 
+            coprime_exp_nat, coprime_exp2_nat, division_decomp_nat, 
+            pow_divides_pow_nat, pow_divides_eq_nat, divides_mult_nat, 
+            coprime_plus_one_nat, setprod_coprime_nat, coprime_divisors_nat, 
+            invertible_coprime_nat
+        gcd_coprime_int, coprime_mult_int, coprime_lmult_int, 
+            coprime_rmult_int, coprime_mul_eq_int, coprime_power_int, 
+            gcd_coprime_exists_int, coprime_exp_int, coprime_exp2_int, 
+            division_decomp_int, pow_divides_pow_int, pow_divides_eq_int, 
+            divides_mult_int, coprime_plus_one_int, coprime_minus_one_int, 
+            setprod_coprime_int, coprime_divisors_int, invertible_coprime_int
+        lcm_0_nat, lcm_0_left_nat, lcm_least_nat, lcm_dvd1_nat, lcm_dvd2_nat, 
+            dvd_lcm_I1_nat, dvd_lcm_I2_nat, lcm_0_iff_nat
+        lcm_0_int, lcm_0_left_int, lcm_least_int, lcm_dvd1_int, lcm_dvd2_int, 
+            dvd_lcm_I1_int, dvd_lcm_I2_int, lcm_0_iff_int
+        lcm_assoc_nat, lcm_commute_nat, lcm_left_commute_nat, lcm_ac_nat
+        lcm_assoc_int, lcm_commute_int, lcm_left_commute_int, lcm_ac_int
+        comp_fun_idem_gcd_nat, comp_fun_idem_lcm_nat
+        comp_fun_idem_gcd_int, comp_fun_idem_lcm_int
+        Lcm_nat_empty, Lcm_empty_nat, Lcm_nat_insert, Lcm_insert_nat, 
+            dvd_Lcm_nat, Lcm_dvd_nat, Lcm_set_nat
+        Gcd_empty_nat, Gcd_insert_nat, Gcd_dvd_nat, dvd_Gcd_nat, Gcd_set_nat
+        Lcm_empty_int, Lcm_insert_int, dvd_Lcm_int, Lcm_dvd_int, Lcm_set_int
+        Gcd_empty_int, Gcd_insert_int, Gcd_dvd_int, dvd_Gcd_int, Gcd_set_int
+INCOMPATIBILITY.
+
